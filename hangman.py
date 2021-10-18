@@ -14,18 +14,14 @@ def hangman():
     word_letters = set(word) #letters in the word
     alphabet = set(string.ascii_uppercase)
     used_letters = set() #what the user has gussed..
-
-    lives = 6
-
-    #getting user input
+    lives = 10
     while len(word_letters) > 0 and lives > 0:
         #letters used
         print('you have', lives,'lives left, You have used these letters: ', ' '.join(used_letters))
-
         # what current word is(ie w-rd)
         word_list = [letter if letter in used_letters else '-' for letter in word]
         print('current word: ', ' '.join(word_list))
-        
+        #getting user input
         user_letter = input("guess a letter: ").upper()
         if user_letter in alphabet - used_letters:
             used_letters.add(user_letter)
